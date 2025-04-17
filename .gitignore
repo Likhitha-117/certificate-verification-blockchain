@@ -1,0 +1,15 @@
+# Node modules
+node_modules/
+
+# Build and artifacts
+build/
+dist/
+.env
+
+# Truffle & Hardhat cache
+cache/
+artifacts/
+
+# OS files
+.DS_Store
+Thumbs.db
