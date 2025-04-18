@@ -435,6 +435,48 @@ const App = () => {
     >
       About Us
     </button>
+    <button 
+      onClick={() => setCurrentPage("verify")} 
+      style={{
+        // margin: "0 3px",
+        padding: "10px 20px",
+        fontFamily: "'Arial Rounded MT Bold', Arial, sans-serif",
+        // backgroundColor: "#e6f2ff",
+        backgroundColor: "transparent",
+        fontWeight: "bold",
+        border: "none",
+        color: "Black",
+        // borderRadius: "5px",
+        fontSize: "24px",
+        cursor: "pointer",
+        // transition: "background-color 0.3s ease",
+      }}
+      // onMouseEnter={(e) => e.target.style.backgroundColor = "#e6f2ff"} // Hover effect
+      // onMouseLeave={(e) => e.target.style.backgroundColor = "#fff"}
+    >
+    Verify Certificate
+    </button>
+    <button 
+      onClick={() => setCurrentPage("verify")} 
+      style={{
+        // margin: "0 3px",
+        padding: "10px 20px",
+        fontFamily: "'Arial Rounded MT Bold', Arial, sans-serif",
+        // backgroundColor: "#e6f2ff",
+        backgroundColor: "transparent",
+        fontWeight: "bold",
+        border: "none",
+        color: "Black",
+        // borderRadius: "5px",
+        fontSize: "24px",
+        cursor: "pointer",
+        // transition: "background-color 0.3s ease",
+      }}
+      // onMouseEnter={(e) => e.target.style.backgroundColor = "#e6f2ff"} // Hover effect
+      // onMouseLeave={(e) => e.target.style.backgroundColor = "#fff"}
+    >
+   List Certificates
+    </button>
 
     <WalletConnectButton />
   </div>

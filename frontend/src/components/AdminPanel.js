@@ -1,4 +1,3 @@
-// src/components/AdminPanel.js
 import React, { useState } from "react";
 import { getContract } from "../utils/getContract";
 
@@ -16,7 +15,6 @@ const AdminPanel = () => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  // Function to generate SHA-256 hash using browser crypto API
   const generateHash = async (text) => {
     const encoder = new TextEncoder();
     const data = encoder.encode(text);
@@ -38,7 +36,7 @@ const AdminPanel = () => {
         form.name,
         form.course,
         form.date,
-        hash // passing the hash to the smart contract
+        hash
       );
       await tx.wait();
       setTxHash(tx.hash);
@@ -49,21 +47,85 @@ const AdminPanel = () => {
   };
 
   return (
-    <div>
-      <h2>Issue Certificate</h2>
-      <input name="certId" placeholder="Certificate ID" onChange={handleChange} />
-      <input name="name" placeholder="Student Name" onChange={handleChange} />
-      <input name="course" placeholder="Course" onChange={handleChange} />
-      <input name="date" placeholder="Issue Date" onChange={handleChange} />
-      <button onClick={handleIssue}>Issue</button>
+    <div style={{
+      maxWidth: "600px",
+      margin: "40px auto",
+      padding: "30px",
+      borderRadius: "12px",
+      backgroundColor: "#f9f9f9",
+      boxShadow: "0 8px 20px rgba(0, 0, 0, 0.1)",
+      fontFamily: "Segoe UI, sans-serif"
+    }}>
+      <h2 style={{ textAlign: "center", marginBottom: "25px", color: "#333" }}>Issue Certificate</h2>
+
+      <div style={{ display: "flex", flexDirection: "column", gap: "15px" }}>
+        <input
+          name="certId"
+          placeholder="Certificate ID"
+          onChange={handleChange}
+          style={inputStyle}
+        />
+        <input
+          name="name"
+          placeholder="Student Name"
+          onChange={handleChange}
+          style={inputStyle}
+        />
+        <input
+          name="course"
+          placeholder="Course"
+          onChange={handleChange}
+          style={inputStyle}
+        />
+        <input
+          name="date"
+          type="date"
+          placeholder="Issue Date"
+          onChange={handleChange}
+          style={inputStyle}
+        />
+        <button
+          onClick={handleIssue}
+          style={{
+            padding: "12px",
+            background: "linear-gradient(90deg, #43B5BF, #979283)",
+            color: "#fff",
+            border: "none",
+            borderRadius: "8px",
+            fontWeight: "bold",
+            fontSize: "16px",
+            cursor: "pointer",
+            transition: "background 0.3s ease"
+          }}
+        >
+          Issue Certificate
+        </button>
+      </div>
+
       {txHash && (
-        <>
-          <p><strong>Transaction Hash:</strong> {txHash}</p>
-          <p><strong>Certificate SHA-256 Hash:</strong> {certHash}</p>
-        </>
+        <div style={{
+          marginTop: "25px",
+          padding: "15px",
+          border: "1px solid #ddd",
+          borderRadius: "8px",
+          backgroundColor: "#fff",
+          wordBreak: "break-word"
+        }}>
+          <p><strong>Transaction Hash:</strong><br /> {txHash}</p>
+          <p><strong>Certificate SHA-256 Hash:</strong><br /> {certHash}</p>
+        </div>
       )}
     </div>
   );
+};
+
+const inputStyle = {
+  padding: "10px 14px",
+  fontSize: "16px",
+  borderRadius: "6px",
+  border: "1px solid #ccc",
+  outline: "none",
+  transition: "border-color 0.3s ease",
 };
 
 export default AdminPanel;
