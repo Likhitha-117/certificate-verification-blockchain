@@ -31,7 +31,7 @@ const CertificateViewer = () => {
     <div className="h-screen flex items-start justify-center">
       <div className="bg-white shadow-2xl border border-blue-200 rounded-2xl p-8 w-full max-w-md">
         <h2 className="text-3xl font-bold text-blue-800 mb-6 text-center tracking-wide">
-          🎓 Verify Certificate
+          🎓 Access Certificate Info
         </h2>
 
         <input

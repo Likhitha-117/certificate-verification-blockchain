@@ -488,7 +488,7 @@ const App = () => {
       // onMouseEnter={(e) => e.target.style.backgroundColor = "#e6f2ff"} // Hover effect
       // onMouseLeave={(e) => e.target.style.backgroundColor = "#fff"}
     >
-   Get Certificate Details
+  Access Certificate Info
     </button>
 
     <WalletConnectButton />
