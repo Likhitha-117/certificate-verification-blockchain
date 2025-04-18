@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import AdminPanel from "./components/AdminPanel";
 import VerifyPanel from "./components/VerifyPanel";
 import WalletConnectButton from "./components/WalletConnectButton";
+import CertificateList from "./components/CertificateList";
 
 const App = () => {
   const [currentPage, setCurrentPage] = useState("home");
@@ -117,15 +118,25 @@ const App = () => {
           </div>
     
           {/* Right: Image */}
-          <div style={{ flex: "1", minWidth: "300px", textAlign: "center" }}>
+    <div
+  style={{
+    display: "flex",
+    justifyContent: "center", // Centers the content horizontally
+    alignItems: "center", // Centers the content vertically (optional)
+    flex: "1",
+    minWidth: "300px",
+    textAlign: "center",
+    // Remove marginLeft, as it's interfering with centering
+  }}
+>
   <img
-    src="/assets/bgpic.png" // 👈 Replace with actual image path (local or URL)
+    src="/assets/bgpic.png" // Replace with actual image path (local or URL)
     alt="Blockchain illustration"
     style={{
       maxWidth: "80%",
-      height: "80%",
+      height: "auto", // Maintain aspect ratio
       borderRadius: "10px",
-      transform: "translateY(-50px)", // Moves the image up by 10px
+      transform: "translateY(-50px)", // Moves the image up by 50px
     }}
   />
 </div>
@@ -238,7 +249,7 @@ const App = () => {
       src="/assets/bgpic2.png" // Replace with the actual image path
       alt="Blockchain Illustration"
       style={{
-        marginLeft:"-150px",
+        marginLeft:"0px",
         maxWidth: "70%",
         height: "auto",
         borderRadius: "10px",
@@ -267,7 +278,7 @@ const App = () => {
      🔐 How NeoVerify Works
     </h2>
 
-    <ul style={{ listStyleType: "none", padding: "0", margin: "0", width: "800px", marginInline: "auto" }}>
+    <ul style={{ listStyleType: "none", padding: "0", margin: "10px", width: "600px", marginInline: "auto" }}>
   {[
     {
       title: "1. Admin Issues Certificate",
@@ -316,7 +327,9 @@ const App = () => {
       return <AdminPanel />;
     } else if (currentPage === "verify") {
       return <VerifyPanel />;
-    } else if (currentPage === "about") {
+    }else if (currentPage === "CertificateList") {
+        return <CertificateList />;
+      }else if (currentPage === "about") {
       return (
         <div style={{
           backgroundColor: "#ffffff",
@@ -457,7 +470,7 @@ const App = () => {
     Verify Certificate
     </button>
     <button 
-      onClick={() => setCurrentPage("verify")} 
+      onClick={() => setCurrentPage("CertificateList")} 
       style={{
         // margin: "0 3px",
         padding: "10px 20px",
@@ -475,7 +488,7 @@ const App = () => {
       // onMouseEnter={(e) => e.target.style.backgroundColor = "#e6f2ff"} // Hover effect
       // onMouseLeave={(e) => e.target.style.backgroundColor = "#fff"}
     >
-   List Certificates
+   Get Certificate Details
     </button>
 
     <WalletConnectButton />
